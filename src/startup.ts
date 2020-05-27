@@ -3,14 +3,16 @@
 import * as dotenv from 'dotenv';
 dotenv.config(); // Loads variables from '.env' file to process.env
 
-import { Main } from './Main';
 import { IoC } from './IoC/IoC';
+import './message-bus-config';
+import { Main } from './main';
 
 
 (async () =>
 {
     try
     {
+
         const main: Main = IoC.get(Main);
         await main.Start();
     }
